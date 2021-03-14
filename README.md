@@ -4,6 +4,39 @@ Validate whether a CSS value is valid for a given property using real browser ch
 
 Given that it depends on browser-side checks it can be assumed to not work as expected outside of a browser (e.g. Node).
 
+## Installation
+
+With `npm`:
+
+```
+npm install validate-css-value
+```
+
+With `yarn`:
+
+```
+yarn add validate-css-value
+```
+
+## Examples
+
+```javascript
+import { validate } from 'validate-css-value';
+
+// With kebab-case.
+validate('background-color', 'red'); // => true
+validate('background-color', 'rud'); // => false
+
+// With camelCase.
+validate('backgroundColor', 'red'); // => true
+validate('backgroundColor', 'rud'); // => false
+
+// Supports more than just colors, including shorthand values.
+validate('border', '1px solid red');       // => true
+validate('border', '-1px occasional rud'); // => false
+
+```
+
 ## Testing
 
 `cypress` is used for testing. `yarn test` will likely work in a development environment, but may require some additional configuration in CI.
