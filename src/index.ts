@@ -1,3 +1,5 @@
+import { isBrowser } from 'browser-or-node';
+
 /**
  * Validates whether a given CSS value is valid for a corresponding CSS
  * property.
@@ -32,6 +34,12 @@ export const validate = (property: string, value: string): boolean => {
    *   vendor-specific ones.
    * - To allow for use of either camelCase or kebab-case values.
    */
+
+  if (!isBrowser) {
+    console.warn('`validate-css-value` only works properly when using a real browser.')
+    return false;
+  }
+
   const o = new Option();
   const prop = toCamelCase(property);
   o.style[prop] = value;
