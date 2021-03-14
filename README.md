@@ -1,5 +1,7 @@
 # validate-css-value
 
+[![NPM](https://img.shields.io/npm/v/validate-css-value.svg)](https://www.npmjs.com/package/validate-css-value) [![CI](https://github.com/dobs/validate-css-value/actions/workflows/main.yml/badge.svg)][![CI](https://github.com/dobs/validate-css-value-dev/actions/workflows/main.yml/badge.svg)](https://github.com/dobs/validate-css-value-dev/actions/workflows/main.yml)
+
 Validate whether a CSS value is valid for a given property using real browser checks.
 
 Given that it depends on browser-side checks it can be assumed to not work as expected outside of a browser (e.g. Node).

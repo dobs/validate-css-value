@@ -14,13 +14,15 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '15'
-      - name: Cache node modules.
+      - name: Caching node modules and Cypress.
         uses: actions/cache@v2
         env:
           cache-name: cache-node-modules
         with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            node_modules
+            /home/runner/.cache/Cypress
+          key: ${{ runner.os }}-deps-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
       - name: Installing dependencies.
         run: yarn install
       - name: Building.
