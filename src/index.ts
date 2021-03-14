@@ -9,14 +9,14 @@ import { isBrowser } from 'browser-or-node';
  *
  * - It only works when using a real browser.
  * - Results may vary from browser to browser.
- * 
+ *
  * Examples:
- * 
+ *
  * ```
  * // Using kebab-case.
  * validate('background-color', 'red'); // => true
  * validate('background-color', 'rud'); // => false
- * 
+ *
  * // Using camelCase.
  * validate('borderWidth', '1px'); // => true
  * validate('borderWidth', 'red'); // => false
@@ -36,7 +36,9 @@ export const validate = (property: string, value: string): boolean => {
    */
 
   if (!isBrowser) {
-    console.warn('`validate-css-value` only works properly when using a real browser.')
+    console.warn(
+      '`validate-css-value` only works properly when using a real browser.'
+    );
     return false;
   }
 
