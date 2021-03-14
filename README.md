@@ -20,6 +20,21 @@ With `yarn`:
 yarn add validate-css-value
 ```
 
+## Bundling
+
+A browser-ready import isn't currently provided, so you'll need to use a browser-targeting bundler such as `webpack`.
+
+If there's enough interest I can start bundling a browser-ready dist file.
+
+## Compatibility
+
+I haven't tested comprehensively, but the following pass the project's test suite:
+
+- Chrome 89
+- Edge 89
+- Firefox 86
+- Electron 87
+
 ## Examples
 
 ```javascript
