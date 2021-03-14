@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/dobs/validate-css-value",
   "license": "Apache-2.0",
   "main": "dist/index.js",
