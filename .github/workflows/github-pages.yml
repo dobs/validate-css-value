@@ -1,0 +1,38 @@
+name: Github Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '15'
+      - name: Caching node modules and Cypress.
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: |
+            node_modules
+            /home/runner/.cache/Cypress
+          key: ${{ runner.os }}-deps-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Installing dependencies.
+        run: yarn install
+      - name: Building.
+        run: yarn build-browser
+      - name: Testing.
+        run: yarn test
+      - name: Linting.
+        run: yarn lint
+      - name: Checking size.
+        run: yarn size
+      - name: Publishing to Github Pages.
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: dist

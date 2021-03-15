@@ -29,11 +29,11 @@ context('validate', () => {
     cy.wrap({ validate })
       .invoke('validate', 'border', '1px solid red')
       .should('eq', true);
-  })
+  });
 
   it('should return false for an invalid shorthand value', () => {
     cy.wrap({ validate })
       .invoke('validate', 'border', '-1px occasional rud')
       .should('eq', false);
-  })
+  });
 });

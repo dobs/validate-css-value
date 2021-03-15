@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>validate-css-value Tests</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 1em;
+        max-width: 60em;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      th {
+        text-align: left;
+      }
+
+      th,
+      td {
+        border: none;
+        padding: 4px 12px 2px 0;
+      }
+    </style>
+    <script>
+      window.addEventListener('load', function() {
+        var results = [
+          validateCSSValue.validate('background-color', 'red') === true,
+          validateCSSValue.validate('background-color', 'rud') === false,
+          validateCSSValue.validate('backgroundColor', 'red') === true,
+          validateCSSValue.validate('backgroundColor', 'rud') === false,
+          validateCSSValue.validate('border', '1px solid red') === true,
+          validateCSSValue.validate('border', '-1px occasional rud') === false,
+        ];
+
+        for (var i = 0; i < results.length; i++) {
+          var res = results[i];
+          var el = document.querySelector('#test' + (i + 1));
+          el.append(res);
+          el.style.backgroundColor = res
+            ? 'rgba(0, 255, 0, 0.1)'
+            : 'rgba(255, 0, 0, 0.1)';
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>validate-css-value Tests</h1>
+    <p>
+      <strong>n.b.</strong> This page is primarily for testing the browser build
+      of validate-css-value against browsers not covered by cypress.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Test Case</th>
+          <th>Passed?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code
+              >validateCSSValue.validate('background-color', 'red') ===
+              true</code
+            >
+          </td>
+          <td id="test1"></td>
+        </tr>
+        <tr>
+          <td>
+            <code
+              >validateCSSValue.validate('background-color', 'rud') ===
+              false</code
+            >
+          </td>
+          <td id="test2"></td>
+        </tr>
+        <tr>
+          <td>
+            <code
+              >validateCSSValue.validate('backgroundColor', 'rud') ===
+              false</code
+            >
+          </td>
+          <td id="test3"></td>
+        </tr>
+        <tr>
+          <td>
+            <code
+              >validateCSSValue.validate('backgroundColor', 'rud') ===
+              false</code
+            >
+          </td>
+          <td id="test4"></td>
+        </tr>
+        <tr>
+          <td>
+            <code
+              >validateCSSValue.validate('border', '1px solid red') ===
+              true</code
+            >
+          </td>
+          <td id="test5"></td>
+        </tr>
+        <tr>
+          <td>
+            <code
+              >validateCSSValue.validate('border', '-1px occasional rud') ===
+              false</code
+            >
+          </td>
+          <td id="test6"></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
