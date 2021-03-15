@@ -15,7 +15,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "build-browser": "tsdx build && webpack",
-    "test": "tsdx build && cypress run",
+    "test": "tsdx build && webpack && cypress run",
     "lint": "tsdx lint",
     "prepare": "tsdx build && webpack",
     "size": "size-limit",
