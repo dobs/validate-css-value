@@ -20,12 +20,6 @@ With `yarn`:
 yarn add validate-css-value
 ```
 
-## Bundling
-
-A browser-ready import isn't currently provided, so you'll need to use a browser-targeting bundler such as `webpack`.
-
-If there's enough interest I can start bundling a browser-ready dist file.
-
 ## Compatibility
 
 I haven't tested comprehensively, but the following pass the project's test suite:
@@ -49,14 +43,19 @@ validate('backgroundColor', 'red'); // => true
 validate('backgroundColor', 'rud'); // => false
 
 // Supports more than just colors, including shorthand values.
-validate('border', '1px solid red');       // => true
+validate('border', '1px solid red'); // => true
 validate('border', '-1px occasional rud'); // => false
-
 ```
 
 ## Testing
 
 `cypress` is used for testing. `yarn test` will likely work in a development environment, but may require some additional configuration in CI.
+
+## Usage Without Bundling
+
+I recommend using your own bundler, such as `webpack` or `browserify`.
+
+That said, running `yarn build-browser` will create a browser-ready JS file, `validateCSSValue.js` that doesn't require any additional bundling.
 
 ## Credit
 
