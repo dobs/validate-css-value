@@ -24,13 +24,11 @@ jobs:
       - name: Installing dependencies.
         run: yarn install
       - name: Building.
-        run: yarn build-browser
+        run: |
+          yarn build-browser
+          ls dist
       - name: Testing.
         run: yarn test
-      - name: Linting.
-        run: yarn lint
-      - name: Checking size.
-        run: yarn size
       - name: Publishing to Github Pages.
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
