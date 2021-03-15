@@ -60,3 +60,4 @@ That said, running `yarn build-browser` will create a browser-ready JS file, `va
 ## Credit
 
 Inspired by [this StackOverflow question and its answers](https://stackoverflow.com/questions/48484767/javascript-check-if-string-is-valid-css-color).
+
