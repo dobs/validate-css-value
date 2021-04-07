@@ -55,7 +55,17 @@ validate('border', '-1px occasional rud'); // => false
 
 I recommend using your own bundler, such as `webpack` or `browserify`.
 
-That said, running `yarn build-browser` will create a browser-ready JS file, `validateCSSValue.js` that doesn't require any additional bundling.
+That said, running `yarn build-browser` will create a browser-ready JS file, `dist/validate-css-value.js` that doesn't require any additional bundling.
+
+Example usage might then look like:
+
+```html
+<script src="validate-css-value.js"></script>
+<script>
+  console.log('Is red a valid color?: ' + validateCSSValue.validate('color', 'red'));
+  console.log('Is rud a valid color?: ' + validateCSSValue.validate('color', 'rud'));
+</script>
+```
 
 ## Credit
 
